@@ -1,0 +1,21 @@
+import random
+import string
+upper = string.ascii_uppercase
+lower = string.ascii_lowercase
+digits = string.digits
+symbols = string.punctuation
+all_chars = upper + lower + digits + symbols
+
+length = int(input("Enter the length of Password to be generated: "))
+if length < 8:
+    print("Password length must be at least 8 for security.")
+else:
+    password = (
+        random.choice(upper)
+        + random.choice(lower)
+        + random.choice(digits)
+        + random.choice(symbols)
+    )    
+    password += ''.join(random.choices(all_chars, k=length - 4))
+    password = ''.join(random.sample(password, len(password)))
+    print("Your Secure Password is:", password)
